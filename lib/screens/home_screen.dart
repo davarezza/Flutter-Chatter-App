@@ -4,7 +4,9 @@ import 'package:chatter/pages/contacts_page.dart';
 import 'package:chatter/pages/messages_page.dart';
 import 'package:chatter/pages/notifications_page.dart';
 import 'package:chatter/theme.dart';
+import 'package:chatter/widgets/glowing_action_button.dart';
 import 'package:chatter/widgets/widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/avatar.dart';
@@ -40,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: Theme.of(context).iconTheme,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: ValueListenableBuilder(
@@ -105,43 +108,62 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: true,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _NavigationBarItem(
-            index: 0,
-            lable: 'Messages',
-            isSelected: (selectedIndex == 0),
-            icon: Icons.message,
-            onTap: handleItemSelected,
+    final brightness = Theme.of(context).brightness;
+    return Card(
+      color: (brightness == Brightness.light) ? Colors.transparent : null,
+      elevation: 0,
+      margin: const EdgeInsets.all(0),
+      child: SafeArea(
+        top: false,
+        bottom: true,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _NavigationBarItem(
+                index: 0,
+                lable: 'Messages',
+                isSelected: (selectedIndex == 0),
+                icon: Icons.message,
+                onTap: handleItemSelected,
+              ),
+              _NavigationBarItem(
+                index: 1,
+                lable: 'Notifications',
+                isSelected: (selectedIndex == 1),
+                icon: Icons.notification_add,
+                onTap: handleItemSelected,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: GlowingActionButton(
+                  color: AppColors.secondary, 
+                  icon: CupertinoIcons.add, 
+                  onPressed: () {
+                  print('TODO on new message');
+                },
+                            ),
+              ),
+              _NavigationBarItem(
+                index: 2,
+                lable: 'Calls',
+                isSelected: (selectedIndex == 2),
+                icon: Icons.phone,
+                onTap: handleItemSelected,
+              ),
+              _NavigationBarItem(
+                index: 3,
+                lable: 'Contacts',
+                isSelected: (selectedIndex == 3),
+                icon: Icons.person,
+                onTap: handleItemSelected,
+              ),
+            ],
           ),
-          _NavigationBarItem(
-            index: 1,
-            lable: 'Notifications',
-            isSelected: (selectedIndex == 1),
-            icon: Icons.notification_add,
-            onTap: handleItemSelected,
-          ),
-          _NavigationBarItem(
-            index: 2,
-            lable: 'Calls',
-            isSelected: (selectedIndex == 2),
-            icon: Icons.phone,
-            onTap: handleItemSelected,
-          ),
-          _NavigationBarItem(
-            index: 3,
-            lable: 'Contacts',
-            isSelected: (selectedIndex == 3),
-            icon: Icons.person,
-            onTap: handleItemSelected,
-          ),
-        ],
+        ),
       ),
-      );
+    );
   }
 }
 
@@ -168,7 +190,7 @@ class _NavigationBarItem extends StatelessWidget {
         onTap(index);
       },
       child: SizedBox(
-        height: 70,
+        width: 70,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
