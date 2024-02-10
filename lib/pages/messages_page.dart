@@ -15,7 +15,7 @@ class MessagesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: _Stories(),
         ),
         SliverList(
