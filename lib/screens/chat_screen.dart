@@ -14,9 +14,9 @@ class ChatScreen extends StatelessWidget {
     );
 
   const ChatScreen({
-    Key? key,
+    super.key,
     required this.messageData,
-    }) : super(key: key);
+    });
 
   final MessageData messageData;
 
@@ -62,8 +62,8 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: const [
+      body: const Column(
+        children: [
           Expanded(
             child: _DemoMessageList(),
           ),
@@ -75,7 +75,7 @@ class ChatScreen extends StatelessWidget {
 }
 
 class _DemoMessageList extends StatelessWidget {
-  const _DemoMessageList({Key? key}) : super(key: key);
+  const _DemoMessageList();
 
   @override
   Widget build(BuildContext context) {
@@ -116,10 +116,9 @@ class _DemoMessageList extends StatelessWidget {
 
 class _MessageTile extends StatelessWidget {
   const _MessageTile({
-    Key? key,
     required this.message,
     required this.messageDate,
-  }) : super(key: key);
+  });
 
   final String message;
   final String messageDate;
@@ -139,7 +138,7 @@ class _MessageTile extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(_borderRadius),
                   bottomRight: Radius.circular(_borderRadius),
                   bottomLeft: Radius.circular(_borderRadius),
@@ -175,10 +174,9 @@ class _MessageTile extends StatelessWidget {
 
 class _MessageOwnTile extends StatelessWidget {
   const _MessageOwnTile({
-    Key? key,
     required this.message,
     required this.messageDate,
-  }) : super(key: key);
+  });
 
   final String message;
   final String messageDate;
@@ -234,9 +232,8 @@ class _MessageOwnTile extends StatelessWidget {
 
 class _DateLable extends StatelessWidget {
   const _DateLable({
-    Key? key,
     required this.lable,
-  }) : super(key: key);
+  });
 
   final String lable;
 
@@ -269,9 +266,8 @@ class _DateLable extends StatelessWidget {
 
 class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
-    Key? key,
     required this.messageData,
-    }) : super(key: key);
+    });
 
   final MessageData messageData;
 
@@ -313,7 +309,7 @@ class _AppBarTitle extends StatelessWidget {
 }
 
 class _ActionBar extends StatelessWidget {
-  const _ActionBar({Key? key}) : super(key: key);
+  const _ActionBar();
 
   @override
   Widget build(BuildContext context) {

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class GlowingActionButton extends StatelessWidget {
   const GlowingActionButton({
-    Key? key,
+    super.key,
     required this.color,
     required this.icon,
     this.size = 54,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final Color color;
   final IconData icon;

@@ -40,8 +40,8 @@ abstract class AppTheme {
           titleLarge: TextStyle(color: AppColors.textDark),
         ),
         iconTheme: const IconThemeData(color: AppColors.iconDark),
-        colorScheme: ColorScheme.light(
-          primary: accentColor, // Set primary color here
+        colorScheme: const ColorScheme.light(
+          primary: accentColor,
           background: _LightColors.background,
         ),
       );
@@ -57,8 +57,8 @@ abstract class AppTheme {
           titleLarge: TextStyle(color: AppColors.textLigth),
         ),
         iconTheme: const IconThemeData(color: AppColors.iconLight),
-        colorScheme: ColorScheme.dark(
-          primary: accentColor, // Set primary color here
+        colorScheme: const ColorScheme.dark(
+          primary: accentColor,
           background: _DarkColors.background,
         ),
       );

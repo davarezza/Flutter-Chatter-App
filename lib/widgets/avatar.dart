@@ -3,28 +3,25 @@ import 'package:flutter/material.dart';
 
 class Avatar extends StatelessWidget {
   const Avatar({
-    Key? key,
+    super.key,
     required this.url,
     required this.radius,
-  }) : super(key: key);
+  });
 
   const Avatar.small({
-    Key? key,
+    super.key,
     required this.url,
-  })  : radius = 18,
-        super(key: key);
+  })  : radius = 18;
 
   const Avatar.medium({
-    Key? key,
+    super.key,
     required this.url,
-  })  : radius = 26,
-        super(key: key);
+  })  : radius = 26;
 
   const Avatar.large({
-    Key? key,
+    super.key,
     required this.url,
-  })  : radius = 34,
-        super(key: key);
+  })  : radius = 34;
 
   final double radius;
   final String url;

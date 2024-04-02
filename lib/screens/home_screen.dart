@@ -9,7 +9,6 @@ import 'package:chatter/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/avatar.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});

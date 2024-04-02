@@ -45,8 +45,7 @@ class MessagesPage extends StatelessWidget {
 
 class _MessageTitle extends StatelessWidget {
   const _MessageTitle({
-    Key? key, 
-    required this.messageData}) : super(key: key);
+    required this.messageData});
 
   final MessageData messageData;
 
@@ -156,7 +155,7 @@ class _MessageTitle extends StatelessWidget {
 }
 
 class _Stories extends StatelessWidget {
-  const _Stories({Key? key}) : super(key: key);
+  const _Stories();
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +168,7 @@ class _Stories extends StatelessWidget {
           children: [
             const Padding(
               padding: EdgeInsets.only(left: 16.0, top: 4, bottom: 16.0),
-              child: const Text(
+              child: Text(
                 'Stories',
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
@@ -206,9 +205,8 @@ class _Stories extends StatelessWidget {
 
 class _StoryCard extends StatelessWidget {
   const _StoryCard({
-    Key? key,
     required this.storyData,
-  }) : super(key: key);
+  });
 
   final StoryData storyData;
 
